@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project Basics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        .container {
+            background: white;
+            padding: 30px;
+            margin: 40px;
+            opacity: 0.8;
+            border-radius: 30px;
+            line-height: 10px;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/436/original/Arrive-Breathe-Connect.png?1658600617");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            line-height: 60px;
+        }
+
+        h2 {
+            font-size: 40px;
+            line-height: 40px;
+        }
+
+        .heading {
+            text-align: center;
+            margin: 20px auto;
+            background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+            max-width: 900px;
+            border-radius: 20px;
+            padding: 10px 0;
+            color: #431c60;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .practice {
+            display: block;
+            position: relative;
+            text-align: center;
+
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .column {
+            float: left;
+            margin-left: 45px;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .title1,
+        .title2 {
+            transition: all 0.4s ease-in-out;
+        }
+
+        .title1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            font-weight: 600;
+            color: rgb(19, 56, 130);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 30px;
+        }
+
+        .title2 {
+            position: absolute;
+            padding-top: 20px;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            font-family: 'Spectral', sans;
+            font-size: 16px;
+            line-height: 25px;
+            color: rgb(19, 56, 130);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .practice:hover .title1 {
+            opacity: 0;
+        }
+
+        .practice:hover .title2 {
+            opacity: 1;
+        }
+
+        .resources {
+            color: rgb(65, 46, 112);
+            background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+            text-align: center;
+            margin: 40px auto;
+            line-height: 40px;
+            font-size: 20px;
+            font-family: 'Montserrat', sans-serif;
+            border: 1px solid rgb(184, 167, 167);
+            border-radius: 20px;
+            border-style: dashed;
+            padding: 20px;
+            max-width: 950px;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .video {
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .videowrapper {
+            float: none;
+            clear: both;
+            width: 100%;
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 25px;
+            height: 0;
+        }
+
+        .videowrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .click-app {
+            text-align: center;
+            font-size: 23px;
+            font-family: 'Montserrat', sans-serif;
+            color: #2d173e;
+            font-weight: 600;
+            line-height: 40px;
+        }
+
+        .bonus {
+            text-align: center;
+            font-size: 20px;
+            font-family: 'Montserrat', sans-serif;
+            color: #2d173e;
+            line-height: 40px;
+        }
+
+        ul {
+            list-style: none;
+            text-align: center;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        li {
+            display: inline-block;
+            padding: 30px 40px;
+        }
+
+        .subscribe {
+            display: block;
+            margin: 50px auto 20px;
+            text-align: center;
+            background: linear-gradient(#ea0303, #bd029e);
+            color: white;
+            border-radius: 10px;
+            border: 2px solid white;
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            padding: 25px;
+            width: 220px;
+            box-shadow: 5px 5px 5px rgba(124, 15, 15, 0.7);
+        }
+
+        .subscribe:hover span {
+            display: none;
+        }
+
+        .subscribe:hover:before {
+            content: "👍Get a bonus!";
+        }
+
+        .subscribe:hover {
+            color: white;
+            cursor: pointer;
+            transform: translate(0, 7px);
+        }
+
+        #practiceBtn {
+            display: block;
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            border: none;
+            outline: none;
+            background: linear-gradient(#735bab, #e664d1);
+            color: white;
+            cursor: pointer;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #practiceBtn:hover {
+            background: linear-gradient(#e664d1, #735bab);
+        }
+
+        .created-by {
+            text-align: center;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 21px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading">
+            <h1>🧘 Mindful Breathing 😮‍💨</h1>
+            <h2>let's practice together!</h2>
+        </div>
+
+        <div class="row">
+            <div class="practice column">
+                <img class="notes"
+                    src="https://img.freepik.com/premium-vector/blue-sticky-note-isolated-white-background_199548-579.jpg"
+                    alt="Sticky note" width="300">
+                <span class="title1">Get comfortable</span>
+                <span class="title2">Choose position where you can relax, and where your breathing won't feel
+                    constricted.</span>
+            </div>
+            <div class="practice column">
+                <img src="https://img.freepik.com/premium-vector/blue-sticky-note-isolated-white-background_199548-579.jpg"
+                    alt="Sticky note" width="300">
+                <span class="title1">Use a guided recording<br />or do it yourself</span>
+                <span class="title2">Set a timer for desired amount of time</span>
+            </div>
+            <div class="practice column">
+                <img src="https://img.freepik.com/premium-vector/blue-sticky-note-isolated-white-background_199548-579.jpg"
+                    alt="Sticky note" width="300">
+                <span class="title1">Start to notice<br /> your breath</span>
+                <span class="title2">Breath in and out and take note of how each
+                    inhale feels. Is it short or
+                    long? Deep or shallow?</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="practice column">
+                <img src="https://img.freepik.com/premium-vector/blue-sticky-note-isolated-white-background_199548-579.jpg"
+                    alt="Sticky note" width="300">
+                <span class="title1">Notice your body</span>
+                <span class="title2">Ask yourself: Where do you feel your breath the
+                    most?</span>
+            </div>
+            <div class="practice column">
+                <img src="https://img.freepik.com/premium-vector/blue-sticky-note-isolated-white-background_199548-579.jpg"
+                    alt="Sticky note" width="300">
+                <span class="title1">Reserve judgment</span>
+                <span class="title2">Acknowledge the fact that your mind has wandered, don't judge it.</span>
+            </div>
+            <div class="practice column">
+                <img src="https://img.freepik.com/premium-vector/blue-sticky-note-isolated-white-background_199548-579.jpg"
+                    alt="Sticky note" width="300">
+                <span class="title1">Assess</span>
+                <span class="title2">Once your time's up, notice how you feel. Does your body feel different? Are you
+                    more relaxed?</span>
+            </div>
+        </div>
+
+        <p class="resources"> <strong>🧘 Resources 😮‍💨 </strong><br />You can practice mindful breathing by yourself,
+            but if you feel like you need some extra
+            help,<br /> you can listen to guided meditations and mindful breathing exercises. <br />There are plenty of
+            guided
+            videos on <a href="https://www.youtube.com/watch?v=I-SFdhVwrVA&ab_channel=EpworthHealthCare"
+                target="_blank">YouTube</a>, or
+            you can
+            try out an app like <br /><a href="#apps-link-same-page"><strong>Headspace</strong></a>, <a
+                href="#apps-link-same-page"><strong>Calm</strong></a> or <a
+                href="#apps-link-same-page"><strong>Unwinding
+                    Anxiety</strong></a>. </p><br />
+
+
+        <div class="video">
+            <div class="videowrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/VUjiXcfKBn8"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe></div>
+        </div>
+        <hr>
+
+        <p id="apps-link-same-page" class="click-app">⬇️ Click on icon below and enjoy the best apps for <em>Mindful
+                Breathing</em>! ⬇️ </p>
+        <p class="bonus">Subscribe and get a bonus from me 😉</p>
+        <ul class="apps">
+
+
+            <li><a href="https://www.calm.com/" target="_blank"><img class="calm"
+                        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/438/original/calm.png?1658600770"
+                        alt="Calm logo" width="150"></a></li>
+            <li><a href="https://www.headspace.com/join-us" target="_blank"><img class="headspace"
+                        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/437/original/headspace.png?1658600706"
+                        alt="Headspace logo" width="200"></a></li>
+
+            <li><a href="https://www.unwindinganxiety.com/" target="_blank"><img class="unwindinganxiety"
+                        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/041/439/original/sharecare.png?1658600821"
+                        alt="Unwindinganxiety logo" width="150"></a></li>
+
+        </ul>
+
+        <button class="subscribe"><span>👉Subscribe</span></button>
+
+    </div>
+
+    <button onclick="topFunction()" id="practiceBtn">Let's practice! ⬆</button>
+
+    <p class="created-by">Created by <strong>Anzhelika Susemcik</strong></p>
+
+    <script>
+
+        function canSubscribe() {
+            let email = prompt("What is your email?");
+            let result = email.includes("@");
+            return result;
+        }
+        function subscribe() {
+            let name = prompt("What is your name?");
+            if (canSubscribe()) {
+                alert(`Dear ${name}! You've got a FREE plan for apps above! 
+            Use the code we've sent to your email 😉
+            🧘 Enjoy Mindful Breathing! 😮‍💨`);
+            } else {
+                alert(`Dear ${name}, please enter valid email.`);
+            }
+        }
+        let clickMeButton = document.querySelector("button");
+        clickMeButton.addEventListener("click", subscribe);
+
+        practiceButton = document.getElementById("practiceBtn");
+        window.onscroll = function () { scrollFunction() };
+        function scrollFunction() {
+            if (document.body.scrollTop > 850 || document.documentElement.scrollTop > 850) {
+                practiceButton.style.display = "block";
+            } else {
+                practiceButton.style.display = "none";
+            }
+        }
+        function topFunction() {
+            document.documentElement.scrollTop = 320;
+        }
+
+    </script>
+</body>
+
+</html>
